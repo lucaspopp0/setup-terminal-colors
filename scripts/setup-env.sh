@@ -4,8 +4,8 @@ if [[ "${GITHUB_ACTIONS-false}" == "true" ]]; then
     export TERM="${TERM-xterm}"
 fi
 
-if [[ -z "${GITHUB_ENV-}" ]]; then
-    export GITHUB_ENV="/dev/null"
+if [[ -z "${GITHUB_OUTPUT-}" ]]; then
+    export GITHUB_OUTPUT="/dev/null"
 fi
 
 echo "Available commands:"
@@ -14,12 +14,14 @@ echo "Available commands:"
 # Basic formatting commands
 # -------------------------
 RESET=$(tput sgr0)
-echo "RESET=$RESET" >> "$GITHUB_ENV"
+echo "RESET=$RESET" >> "$GITHUB_OUTPUT"
 echo " - RESET"
 
 BOLD=$(tput bold)
-echo "BOLD=$BOLD" >> "$GITHUB_ENV"
+echo "BOLD=$BOLD" >> "$GITHUB_OUTPUT"
 echo -e " - ${BOLD}BOLD${RESET}"
+
+exit 0
 
 UNDERLINE=$(tput smul)
 echo "UNDERLINE=$UNDERLINE" >> "$GITHUB_ENV"

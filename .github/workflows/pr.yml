@@ -19,9 +19,13 @@ jobs:
       -
         uses: actions/checkout@v6
       -
+        id: colors
         uses: ./.
       -
         name: Print some colored content
+        env:
+          RESET: ${{ steps.colors.outputs.RESET }}
+          BOLD: ${{ steps.colors.outputs.BOLD }}
         run: |
           echo -e "${BOLD}Bold text${RESET}"
           echo -e "${GREEN}GREEN text${RESET}"
