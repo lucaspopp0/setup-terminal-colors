@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
 
 if [[ "${GITHUB_ACTIONS-false}" == "true" ]]; then
     export TERM="${TERM-xterm}"
