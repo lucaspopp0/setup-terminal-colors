@@ -9,12 +9,19 @@ branding:
 
 inputs: {}
 
-outputs: {}
+outputs:
+  RESET:
+    description: Reset all text styles
+    value: ${{ steps.run.outputs.RESET }}
+  BOLD:
+    description: Make the text bold
+    value: ${{ steps.run.outputs.BOLD }}
 
 runs:
   using: composite
   steps:
     -
+      id: run
       shell: bash
       run: |
         # Persist color commands to the runner's environment
