@@ -1,0 +1,22 @@
+name: setup-terminal-colors
+description: >-
+  Persist colors and other tput font controls
+  to the terminal via environment variables
+
+branding:
+  color: purple
+  icon: feather
+
+inputs: {}
+
+outputs: {}
+
+runs:
+  using: composite
+  steps:
+    -
+      shell: bash
+      run: |
+        # Persist color commands to the runner's environment
+        
+        ${{ github.action_path }}/scripts/setup-env.sh
